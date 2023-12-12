@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="a.js"> </script>
+    <title>DOM</title>
+    <style>
+        html {
+            background-color: aquamarine;
+        }
+
+        .wrap {
+            background: #ddd;
+            border: 1px dotted #000;
+            border-radius: 20px;
+            padding: 16px;
+            height: 400px;
+            width: 600px;
+            margin: 20px auto;
+            box-shadow: 5px 5px 5px #000;
+        }
+
+        .wrap img {
+            width: 300px;
+            height: 300px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- // id	pw	를 입력 받는 폼을 만들기		 -->
+    <div class="wrap">
+        <img src="./dog.gif" alt="">
+        <form>
+            id:<input id="id" placeholder="아이디">
+            pw:<input id="pw" placeholder="암호">
+            <input type="button" onclick="login()" value="로그인">
+            <input type="button" value="회원가입" onClick="port()">
+            <div class="text"></div>
+        </form>
+    </div>
+    <script>
+
+        var str_id = "";
+        var str_pw = "";
+
+        var input_id;
+        var input_pw;
+
+        window.onload = function () {
+            input_id = document.getElementById('id');
+            input_pw = document.getElementById('pw');
+        }
+
+        // var str_id = "";
+        // var str_pw = "";
+
+        // var input_id;
+        // var input_pw;
+
+        // window.onload = function () { // html 문서가 다 읽어진 후에 실행되는 함수임. 이걸 써야 아래 h1 태그(id=a)에 대한 접근이 가능해짐
+
+
+        //     input_id = document.getElementById("id");
+        //     input_pw = document.getElementById("pw");
+
+        //     //todo
+
+        //     // str_id = input_id.value;
+        //     // str_pw = input_pw.value;
+
+        // }
+
+        function login() {
+            // alert("id"+input_id.value+'pw'+input_pw.value);
+            if (input_id.value == 'cat' && input_pw.value == '1234') {
+                alert('로그인 성공');
+                celabrate();
+            } else {
+                alert('로그인 실패')
+            }
+        }
+
+        function celabrate(){
+            let box=document.querySelector('.text');
+            let log='회원님 반갑습니다.';
+            box.innerHTML=input_id.value+log;
+        }
+
+        function port(){
+            location.href='./reg_member.html';
+        }
+
+  
+    </script>
+</body>
+
+</html>
